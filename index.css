@@ -1,0 +1,227 @@
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url(https://static.vecteezy.com/system/resources/previews/006/936/691/non_2x/purple-neon-border-with-flare-on-the-top-background-free-photo.jpg) fixed;
+    color: #ffffff;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    background-color: #999999;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6200be;
+}
+
+.search-bar {
+    width: 40%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Profile image styling for navbar */
+.profile-img {
+    width: 40px; /* Set smaller size for navbar */
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    margin-left: 10px; /* Space between profile image and other navbar items */
+}
+
+/* Profile dropdown menu */
+.profile-dropdown {
+    position: relative;
+}
+
+#profile-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 45px; /* Position dropdown below the profile image */
+    right: 0;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 150px;
+}
+
+#profile-dropdown-menu a,
+#profile-dropdown-menu button {
+    display: block;
+    padding: 10px;
+    color: #6200be;
+    text-decoration: none;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+#profile-dropdown-menu a:hover,
+#profile-dropdown-menu button:hover {
+    background-color: #f1f1f1;
+}
+
+/* Layout adjustments */
+.main-container {
+    display: flex;
+    width: 80%;
+    margin-top: 80px;
+    gap: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 20%;
+    background: #6e6e6e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.sidebar .create-post {
+    display: block;
+    text-align: center;
+    background: #6200be;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+.sidebar .create-post:hover {
+    background: rgb(49, 0, 128);
+}
+
+/* Posts */
+.posts-container {
+    width: 60%;
+}
+
+.post {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.post h3 {
+    font-size: 18px;
+    color: #000000;
+}
+
+.post p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Buttons */
+.btnx {
+    background: #6200be;
+    color: white;
+    padding: 1px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn {
+    background: #6200be;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: rgb(49, 0, 128);
+}
+
+.btnx:hover {
+    background: rgb(49, 0, 128);
+}
+
+/* Profile image for profile section */
+.profile-img-small {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Back button styling */
+.sidebar button {
+    background: #6200be;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.sidebar button:hover {
+    background: rgb(49, 0, 128);
+}
+
+/* Profile image section form styling */
+.profile-image-section {
+    text-align: center;
+}
+
+.profile-image-section label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.profile-image-section input {
+    margin-bottom: 20px;
+}
+
+.profile-image-section button {
+    background: #6200be;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.profile-image-section button:hover {
+    background: rgb(49, 0, 128);
+}

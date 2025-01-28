@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(https://plus.unsplash.com/premium_photo-1661878265739-da90bc1af051?q=80&w=786&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat;
+    background: url(https://img.freepik.com/free-photo/studio-background-concept-abstract-empty-light-gradient-purple-studio-room-background-product_1258-52339.jpg?semt=ais_hybrid) no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -112,4 +112,13 @@ body {
 
 .register-link p a:hover {
     text-decoration: underline;
+}
+.btn {
+    background: #ffffff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
 }
