@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Reddit Clone</div>
+        <input type="text" class="search-bar" placeholder="Search...">
+        <div id="auth-buttons">
+            <div class="profile-dropdown">
+                <img id="current-profile-img" src="c:\Users\bteac328\Downloads\Untitled design.png" alt="Profile" class="profile-img" onclick="toggleDropdown()">
+                <div id="profile-dropdown-menu" class="dropdown-menu" style="display:none;">
+                    <a href="profile.html" class="btn">Profile</a>
+                    <button id="logout-btn" class="btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="content-container">
+            <!-- Profile Image Section -->
+            <div class="profile-image-section">
+                <br>
+                <form id="profile-image-form">
+                    <label for="profile-image">Choose New Profile Image:</label>
+                    <input type="file" id="profile-image" accept="image/*" required>
+                    <button type="submit" class="btn">Save Image</button>
+                </form>
+            </div>
+
+            <!-- User Information Section -->
+            <div class="user-info-section">
+                <h2>User Information</h2>
+                <p><strong>Username:</strong> <span id="username-display"></span></p>
+                <p><strong>Email:</strong> <span id="email-display"></span></p>
+                <p><strong>Password:</strong> <span id="password-display"></span></p>
+            </div>
+
+            <!-- Change Password Section -->
+            <div class="change-password-section">
+                <h2>Change Password</h2>
+                <form id="change-password-form">
+                    <label for="current-password">Current Password:</label>
+                    <input type="password" id="current-password" required>
+                    <label for="new-password">New Password:</label>
+                    <input type="password" id="new-password" required>
+                    <label for="confirm-password">Confirm New Password:</label>
+                    <input type="password" id="confirm-password" required>
+                    <button type="submit" class="btn">Change Password</button>
+                </form>
+            </div>
+
+            <!-- Back Button -->
+            <a href="index.html" class="btn">Back</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+          
+</body>
+</html>

@@ -14,9 +14,9 @@
             <a href="login.html" class="btnx" id="login-btn">Login</a>
             <a href="signup.html" class="btnx" id="signup-btn">Sign Up</a>
             <div class="profile-dropdown">
-                <img src="default-profile.jpg" alt="Profile" class="profile-img" onclick="toggleDropdown()">
+                <img id="current-profile-img" src="c:\Users\bteac328\Downloads\Untitled design.png" class="profile-img" onclick="toggleDropdown()">
                 <div id="profile-dropdown-menu" class="dropdown-menu" style="display:none;">
-                    <a href="changeprofile.html" class="btn">Change Profile Image</a>
+                    <a href="profile.html" class="btn">Profile</a>
                     <button id="logout-btn" class="btn" onclick="logout()">Logout</button>
                 </div>
             </div>
@@ -34,65 +34,9 @@
         <div class="posts-container" id="posts-container">
             <h2>Recent Posts</h2>
             <!-- Posts will be added here dynamically -->
-        </div>
+        </div> 
     </div>
+    <script src="script.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            let user = JSON.parse(localStorage.getItem('loggedInUser'));
-            let posts = JSON.parse(localStorage.getItem('posts')) || [];
-            let container = document.getElementById('posts-container');
-            let loginBtn = document.getElementById('login-btn');
-            let signupBtn = document.getElementById('signup-btn');
-            let logoutBtn = document.getElementById('logout-btn');
-            let profileImg = document.querySelector('.profile-img');
-
-            // Display posts in reverse order (newest at the top)
-            posts.reverse().forEach(post => {
-                let postElement = document.createElement('div');
-                postElement.classList.add('post');
-                postElement.innerHTML = `<h3>${post.username}</h3><p>${post.content}</p>`;
-                container.appendChild(postElement);
-            });
-
-            // Display login/signup buttons if not logged in, otherwise show logout and profile image
-            if (user) {
-                loginBtn.style.display = "none";
-                signupBtn.style.display = "none";
-                logoutBtn.style.display = "block";
-                profileImg.style.display = "block"; // Show profile image
-            } else {
-                loginBtn.style.display = "block";
-                signupBtn.style.display = "block";
-                logoutBtn.style.display = "none";
-                profileImg.style.display = "none"; // Hide profile image
-            }
-        });
-
-        // Logout function
-        function logout() {
-            localStorage.removeItem('loggedInUser');
-            alert("Logged out successfully!");
-            window.location.href = 'index.html'; // Redirect to the index page
-        }
-
-        // Toggle profile dropdown menu
-        function toggleDropdown() {
-            let menu = document.getElementById('profile-dropdown-menu');
-            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-        }
-
-        // Function to delete all posts
-        function deleteAllPosts() {
-            // Remove posts from localStorage
-            localStorage.removeItem('posts');
-
-            // Clear the posts from the DOM
-            let container = document.getElementById('posts-container');
-            container.innerHTML = '<h2>Recent Posts</h2>'; // Reset posts container
-
-            alert("All posts have been deleted.");
-        }
-    </script>
 </body>
 </html>

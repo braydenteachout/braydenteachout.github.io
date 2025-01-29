@@ -35,7 +35,7 @@ body {
 .navbar .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #6200be;
+    color: #310080;
 }
 
 .search-bar {
@@ -77,7 +77,7 @@ body {
 #profile-dropdown-menu button {
     display: block;
     padding: 10px;
-    color: #6200be;
+    color: #ffffff;
     text-decoration: none;
     margin-bottom: 5px;
     border-radius: 5px;
@@ -85,7 +85,7 @@ body {
 
 #profile-dropdown-menu a:hover,
 #profile-dropdown-menu button:hover {
-    background-color: #f1f1f1;
+    background-color: #310080;
 }
 
 /* Layout adjustments */
@@ -118,14 +118,30 @@ body {
 }
 
 .sidebar .create-post:hover {
-    background: rgb(49, 0, 128);
+    background: #310080;
 }
 
 /* Posts */
 .posts-container {
     width: 60%;
 }
+/* Post header styling */
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
 
+/* Profile image in posts */
+.post-profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+/* Post styling */
 .post {
     background: #ffffff;
     padding: 15px;
@@ -137,13 +153,14 @@ body {
 .post h3 {
     font-size: 18px;
     color: #000000;
+    margin: 0; /* Remove default margin */
 }
 
 .post p {
     font-size: 14px;
     color: #666;
+    margin-top: 10px; /* Add spacing between username and content */
 }
-
 /* Buttons */
 .btnx {
     background: #6200be;
@@ -181,23 +198,6 @@ body {
     object-fit: cover;
 }
 
-/* Back button styling */
-.sidebar button {
-    background: #6200be;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.sidebar button:hover {
-    background: rgb(49, 0, 128);
-}
-
 /* Profile image section form styling */
 .profile-image-section {
     text-align: center;
@@ -224,4 +224,27 @@ body {
 
 .profile-image-section button:hover {
     background: rgb(49, 0, 128);
+}
+
+/* User Information Section */
+.user-info-section {
+    margin-top: 20px;
+    padding: 20px;
+    background: #6e6e6e;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-info-section h2 {
+    margin-bottom: 15px;
+}
+
+.user-info-section p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #fff;
+}
+
+.user-info-section strong {
+    color: #310080;
 }
