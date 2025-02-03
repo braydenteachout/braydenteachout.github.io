@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="navbar">
+        <a href="index.html" class="btn">back</a>
         <div class="logo">Reddit Clone</div>
         <input type="text" class="search-bar" placeholder="Search...">
         <div id="auth-buttons">
@@ -27,9 +28,53 @@
             <label for="post-content">Post Content:</label>
             <textarea id="post-content" placeholder="What's on your mind?" required></textarea>
             <button type="submit" class="btn">Submit Post</button>
-            <a href="index.html" class="btn">back</a>
         </form>
     </div>
+    <script>document.addEventListener('DOMContentLoaded', function () {
+        let user = JSON.parse(localStorage.getItem('loggedInUser'));
+    
+        // Redirect to login page if not logged in
+        if (!user) {
+            alert("You must be logged in to create a post.");
+            window.location.href = 'login.html';
+            return;
+        }
+    
+        // Handle form submission
+        const form = document.getElementById('post-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+    
+            // Get the post content
+            const postContent = document.getElementById('post-content').value.trim();
+    
+            if (postContent) {
+                // Get existing posts from localStorage or initialize as an empty object
+                const posts = JSON.parse(localStorage.getItem('posts')) || { room1: [], room2: [], room3: [] };
+    
+                // Get the active chat room
+                const activeRoom = localStorage.getItem('activeRoom') || 'room1';
+    
+                // Create a new post object
+                const newPost = {
+                    username: user.username, // Logged-in user's username
+                    content: postContent,
+                    timestamp: new Date().toISOString() // Add timestamp for sorting or display
+                };
+    
+                // Add the new post to the active room
+                posts[activeRoom].push(newPost);
+    
+                // Save the updated posts back to localStorage
+                localStorage.setItem('posts', JSON.stringify(posts));
+    
+                alert("Post created successfully!");
+                window.location.href = 'index.html'; // Redirect to the main page
+            } else {
+                alert("Post content cannot be empty.");
+            }
+        });
+    });</script>
 
     <script src="script.js"></script>
 </body>

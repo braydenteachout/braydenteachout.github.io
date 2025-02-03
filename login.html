@@ -40,23 +40,36 @@
 
     <script>
         document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+    event.preventDefault();
 
-            let usernameOrEmail = document.getElementById('login-username').value.trim();
-            let password = document.getElementById('login-password').value;
+    let usernameOrEmail = document.getElementById('login-username').value.trim();
+    let password = document.getElementById('login-password').value;
 
-            let users = JSON.parse(localStorage.getItem('users')) || [];
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    let user = users.find(user => (user.username === usernameOrEmail || user.email === usernameOrEmail) && user.password === password);
 
-            let user = users.find(user => (user.username === usernameOrEmail || user.email === usernameOrEmail) && user.password === password);
+    if (user) {
+        // Check if the user is banned
+        if (user.banned) {
+            alert("Your account has been banned. Please contact support.");
+            return;
+        }
 
-            if (user) {
-                localStorage.setItem('loggedInUser', JSON.stringify(user));
-                alert("Login successful! Redirecting...");
-                window.location.href = 'index.html'; // Redirect to account page
-            } else {
-                document.getElementById('login-error').style.display = "block";
-            }
-        });
+        // Check if the user is timed out
+        if (user.timeoutEnd && new Date().getTime() < user.timeoutEnd) {
+            let timeoutRemaining = Math.ceil((user.timeoutEnd - new Date().getTime()) / 60000); // Convert to minutes
+            alert(`Your account is timed out. Please try again in ${timeoutRemaining} minutes.`);
+            return;
+        }
+
+        // Log the user in
+        localStorage.setItem('loggedInUser', JSON.stringify(user));
+        alert("Login successful! Redirecting...");
+        window.location.href = 'index.html'; // Redirect to the main page
+    } else {
+        document.getElementById('login-error').style.display = "block";
+    }
+});
     </script>
 </body>
 </html>

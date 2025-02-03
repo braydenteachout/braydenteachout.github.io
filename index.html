@@ -14,29 +14,39 @@
             <a href="login.html" class="btnx" id="login-btn">Login</a>
             <a href="signup.html" class="btnx" id="signup-btn">Sign Up</a>
             <div class="profile-dropdown">
-                <img id="current-profile-img" src="c:\Users\bteac328\Downloads\Untitled design.png" class="profile-img" onclick="toggleDropdown()">
+                <img id="current-profile-img" src="c:\Users\bteac328\Downloads\Untitled design.png" alt="Profile" class="profile-img" onclick="toggleDropdown()">
                 <div id="profile-dropdown-menu" class="dropdown-menu" style="display:none;">
                     <a href="profile.html" class="btn">Profile</a>
+                    <a href="admin-panel.html" class="btn" id="admin-panel-link">Admin Panel</a>
                     <button id="logout-btn" class="btn" onclick="logout()">Logout</button>
                 </div>
             </div>
         </div>
     </div>
 
+
     <div class="main-container">
+        <!-- Sidebar -->
         <div class="sidebar">
-            <h2>Welcome!</h2>
+            <h2>Chat Rooms</h2>
+            <a href="#" class="chat-room-link active" data-room="1">Chat Room 1</a>
+            <a href="#" class="chat-room-link" data-room="2">Chat Room 2</a>
+            <a href="#" class="chat-room-link" data-room="3">Chat Room 3</a>
             <a href="createpost.html" class="create-post">Create Post</a>
-            <!-- Add a Delete All Posts button -->
+            <!-- Add a Delete All Posts button (only for admins) -->
             <button class="btn" id="delete-all-btn" onclick="deleteAllPosts()">Delete All Posts</button>
         </div>
 
+        <!-- Main Content -->
         <div class="posts-container" id="posts-container">
             <h2>Recent Posts</h2>
             <!-- Posts will be added here dynamically -->
-        </div> 
+        </div>
     </div>
-    <script src="script.js"></script>
 
+    <script src="script.js"></script>
 </body>
 </html>
+
+
+

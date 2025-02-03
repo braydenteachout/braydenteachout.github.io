@@ -1,7 +1,38 @@
-change-password-section
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html" class="btn">back</a>
+        <div class="logo">Reddit Clone</div>
+        <input type="text" class="search-bar" placeholder="Search...">
+        <div id="auth-buttons">
+            <div class="profile-dropdown">
+                <img id="current-profile-img" src="c:\Users\bteac328\Downloads\Untitled design.png" alt="Profile" class="profile-img" onclick="toggleDropdown()">
+                <div id="profile-dropdown-menu" class="dropdown-menu" style="display:none;">
+                    <a href="profile.html" class="btn">Profile</a>
+                    <button id="logout-btn" class="btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-// admin-panel.js
-document.addEventListener('DOMContentLoaded', function () {
+    <div class="main-container">
+        <div class="content-container">
+            <h2>Admin Panel</h2>
+            <div id="users-list">
+                <!-- Users will be listed here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
     let user = JSON.parse(localStorage.getItem('loggedInUser'));
 
     // Redirect to login page if not logged in or not an admin
@@ -22,36 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <p><strong>Username:</strong> ${user.username}</p>
             <p><strong>Email:</strong> ${user.email}</p>
             <p><strong>Status:</strong> ${user.banned ? "Banned" : "Active"}</p>
-            <button class="btn" onclick="banUser('${user.email}')">${user.banned ? "Unban" : "Ban"}</button>
-            <button class="btn" onclick="timeoutUser('${user.email}')">Timeout</button>
-        `;
-        usersList.appendChild(userElement);
-    });
-});
-
-
-// admin-panel.js
-document.addEventListener('DOMContentLoaded', function () {
-    let user = JSON.parse(localStorage.getItem('loggedInUser'));
-
-    // Redirect to login page if not logged in or not an admin
-    if (!user || !user.isAdmin) {
-        alert("You do not have permission to access this page.");
-        window.location.href = 'index.html';
-        return;
-    }
-
-    // Load all users
-    let users = JSON.parse(localStorage.getItem('users')) || [];
-    let usersList = document.getElementById('users-list');
-
-    users.forEach(user => {
-        let userElement = document.createElement('div');
-        userElement.classList.add('user');
-        userElement.innerHTML = `
-            <p><strong>Username:</strong> ${user.username}</p>
-            <p><strong>Email:</strong> ${user.email}</p>
-            <p><strong>Status:</strong> ${user.banned ? "Banned" : "Active"}</p>
+            <p><strong>Timeout End:</strong> ${user.timeoutEnd ? new Date(user.timeoutEnd).toLocaleString() : "None"}</p>
             <button class="btn" onclick="banUser('${user.email}')">${user.banned ? "Unban" : "Ban"}</button>
             <button class="btn" onclick="timeoutUser('${user.email}')">Timeout</button>
         `;
@@ -79,33 +81,26 @@ function timeoutUser(email) {
             user.timeoutEnd = new Date().getTime() + timeoutDuration * 60000; // Set timeout end time
             localStorage.setItem('users', JSON.stringify(users));
             alert(`User timed out for ${timeoutDuration} minutes.`);
+            window.location.reload(); // Refresh the page
         }
     } else {
         alert("Invalid timeout duration.");
     }
 }
 
+function logout() {
+    localStorage.removeItem('loggedInUser');
+    alert("Logged out successfully!");
+    window.location.href = 'index.html';
+}
+
+function toggleDropdown() {
+    let menu = document.getElementById('profile-dropdown-menu');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+}
+    </script>
+    <script src="script.js"></script>
 
 
-document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    let usernameOrEmail = document.getElementById('login-username').value.trim();
-    let password = document.getElementById('login-password').value;
-
-    let users = JSON.parse(localStorage.getItem('users')) || [];
-
-    let user = users.find(user => (user.username === usernameOrEmail || user.email === usernameOrEmail) && user.password === password);
-
-    if (user) {
-        localStorage.setItem('loggedInUser', JSON.stringify(user));
-        alert("Login successful! Redirecting...");
-        window.location.href = 'index.html'; // Redirect to account page
-    } else {
-        document.getElementById('login-error').style.display = "block";
-    }
-});
-
-
-
-
+</body>
+</html>

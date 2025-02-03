@@ -33,7 +33,7 @@ body {
 }
 
 .navbar .logo {
-    font-size: 24px;
+    font-size: 29px;
     font-weight: bold;
     color: #310080;
 }
@@ -227,12 +227,12 @@ body {
 }
 
 /* User Information Section */
-.user-info-section {
+.user-info-section { 
     margin-top: 20px;
     padding: 20px;
     background: #6e6e6e;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px #ffffff1a;
 }
 
 .user-info-section h2 {
@@ -242,9 +242,59 @@ body {
 .user-info-section p {
     margin: 10px 0;
     font-size: 16px;
-    color: #fff;
+    color: #ffffff;
 }
 
 .user-info-section strong {
-    color: #310080;
+    color: #ffffff;
+}
+
+
+
+/* Sidebar */
+.sidebar {
+    width: 20%;
+    background: #6e6e6e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.sidebar h2 {
+    margin-bottom: 15px;
+}
+
+.sidebar .chat-room-link {
+    display: block;
+    padding: 10px;
+    background: #6200be;
+    color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.sidebar .chat-room-link.active {
+    background: #310080;
+}
+
+.sidebar .chat-room-link:hover {
+    background: #310080;
+}
+
+.sidebar .create-post {
+    display: block;
+    text-align: center;
+    background: #6200be;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+.sidebar .create-post:hover {
+    background: #310080;
 }
