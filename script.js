@@ -1,13 +1,5 @@
-
 // index.js
 document.addEventListener('DOMContentLoaded', function () {
-    let user = JSON.parse(localStorage.getItem('loggedInUser'));
-
-    // Redirect to login page if not logged in
-    if (!user) {
-        window.location.href = 'login.html';
-        return;
-    }
 
     // Check if the user is banned
     if (user.banned) {
@@ -108,12 +100,7 @@ function deleteAllPosts() {
 
 // profile.js
 document.addEventListener('DOMContentLoaded', function () {
-    let user = JSON.parse(localStorage.getItem('loggedInUser'));
 
-    // If the user is not logged in, redirect to the login page
-    if (!user) {
-        window.location.href = 'login.html';
-    }
 
     // Display the current profile image from localStorage
     let profileImg = document.getElementById('current-profile-img');
@@ -189,14 +176,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // createpost.js
 document.addEventListener('DOMContentLoaded', function () {
-    let user = JSON.parse(localStorage.getItem('loggedInUser'));
-
-    // Redirect to login page if not logged in
-    if (!user) {
-        alert("You must be logged in to create a post.");
-        window.location.href = 'login.html';
-        return;
-    }
 
     // Handle form submission
     const form = document.getElementById('post-form');
@@ -354,14 +333,6 @@ function deleteAllPosts() {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    let user = JSON.parse(localStorage.getItem('loggedInUser'));
-
-    // Redirect to login page if not logged in
-    if (!user) {
-        alert("You must be logged in to create a post.");
-        window.location.href = 'login.html';
-        return;
-    }
 
     // Handle form submission
     const form = document.getElementById('post-form');
