@@ -12,6 +12,8 @@
         <div class="logo">Reddit Clone</div>
         <input type="text" class="search-bar" placeholder="Search...">
         <div id="auth-buttons">
+            <a href="login.html" class="btnx" id="login-btn">Login</a>
+            <a href="signup.html" class="btnx" id="signup-btn">Sign Up</a>
             <div class="profile-dropdown">
                 <img id="current-profile-img" src="c:\Users\bteac328\Downloads\Untitled design.png" alt="Profile" class="profile-img" onclick="toggleDropdown()">
                 <div id="profile-dropdown-menu" class="dropdown-menu" style="display:none;">
@@ -31,5 +33,15 @@
         </form>
     </div>
     <script src="script.js"></script>
+    <script>   
+    let user = JSON.parse(localStorage.getItem('loggedInUser'));
+
+// Redirect to login page if not logged in
+if (!user) {
+    alert("You must be logged in to create a post.");
+    window.location.href = 'login.html';
+    return;
+}
+    </script>
 </body>
 </html>
