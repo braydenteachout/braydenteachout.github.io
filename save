@@ -1,1 +1,10 @@
 admin@example.com
+
+    let user = JSON.parse(localStorage.getItem('loggedInUser'));
+
+    // Redirect to login page if not logged in
+    if (!user) {
+        alert("You must be logged in to create a post.");
+        window.location.href = 'login.html';
+        return;
+    }
